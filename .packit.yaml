@@ -1,0 +1,21 @@
+---
+specfile_path: python3.spec
+actions:
+  post-upstream-clone:
+  - curl -O https://src.fedoraproject.org/rpms/python3/raw/master/f/python3.spec
+  - curl -O https://src.fedoraproject.org/rpms/python3/raw/master/f/idle3.appdata.xml
+  - curl -O https://src.fedoraproject.org/rpms/python3/raw/master/f/idle3.desktop
+  - curl -O https://src.fedoraproject.org/rpms/python3/raw/master/f/check-pyc-timestamps.py
+  # packit will apply the patches itself
+  - sed '/^Patch/d' -i python3.spec
+  # patckit uses %autosetup - and yes, the line below doesn't make sense given
+  # how python3's spec look, this is just a demonstration of packit's functionality
+  - sed '/^%patch/d' -i python3.spec
+# this commit should match the upstream tarball, all the commits on top are treated as downstream patches
+upstream_ref: 802eb676bad7a2558fdf35a8ea5882f5e97c2ad8
+jobs:
+  - job: copr_build
+    trigger: pull_request
+    metadata:
+      targets:
+        - fedora-all
