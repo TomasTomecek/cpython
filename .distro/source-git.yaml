@@ -1,0 +1,11 @@
+patch_generation_ignore_paths:
+- .distro
+sources:
+- path: Python-3.9.5.tar.xz
+  url: https://src.fedoraproject.org/repo/pkgs/python3.9/Python-3.9.5.tar.xz/sha512/7b581af1b3e73695f124ff6a3a960e22104153a5d920ca930c046f42ea313b1e7ec77e39876db2bf5d5da6d7412cb072ff8ae7814dda12c14f9da6c570fb0995/Python-3.9.5.tar.xz
+- path: Python-3.9.5.tar.xz.asc
+  url: https://src.fedoraproject.org/repo/pkgs/python3.9/Python-3.9.5.tar.xz.asc/sha512/cfee8c161447544d6f18c3490b96ce12c8df5e9b143fca09734066f3606abe767cd7b4d05315c691f41c0e565d9585456774c10770ffe2ef7983a911bbcfdb83/Python-3.9.5.tar.xz.asc
+specfile_path: .distro/python3.9.spec
+upstream_project_url: git@github.com:TomasTomecek/cpython.git
+upstream_ref: v3.9.5
+downstream_package_name: python3.9
